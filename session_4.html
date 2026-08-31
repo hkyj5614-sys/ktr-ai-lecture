@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>4차시 · 보고서 작성부터 PPT까지 · KTR 한국화학융합시험연구원</title>
+<style>
+  /* ===== 디자인 토큰 (색은 여기서만 바꾼다) ===== */
+  :root{
+    --brand:#5b8fd6;--brand-dark:#3f72bd;--brand-soft:#eef4fb;
+    --ink:#1f2937;--ink-soft:#6b7280;--line:#e5e7eb;--bg:#f7f8fa;--card:#ffffff;
+    --code-bg:#f3f4f6;--note:#eef4fb;--note-bd:#5b8fd6;--warn:#fff7ed;--warn-bd:#ea580c;
+    --tip:#fffbeb;--tip-bd:#d4a017;--ok:#16a34a;--nav-h:118px;--radius:14px;
+    --shadow:0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px;}
+  .statusbar{height:4px;background:linear-gradient(90deg,var(--brand),var(--brand-dark));}
+  .header{padding:34px 0 26px;}
+  .header .logo{display:inline-block;font-weight:800;letter-spacing:-.5px;color:var(--brand-dark);font-size:15px;margin-bottom:14px;padding:5px 12px;background:var(--brand-soft);border-radius:999px;}
+  .header .eyebrow{color:var(--ink-soft);font-size:14px;font-weight:600;margin:0 0 6px;}
+  .header h1{margin:0 0 8px;font-size:30px;letter-spacing:-1px;line-height:1.25;}
+  .header .subtitle{margin:0 0 16px;color:var(--ink-soft);font-size:16px;}
+  .header .guide{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--brand-dark);background:var(--brand-soft);border:1px solid #dbe7f6;border-radius:8px;padding:8px 13px;}
+  .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .nav-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 0;}
+  .nav-row.sub{padding-top:9px;border-top:1px dashed var(--line);}
+  .nav-btn{text-decoration:none;font-size:14px;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--line);padding:7px 14px;border-radius:8px;transition:.15s;white-space:nowrap;}
+  .nav-btn:hover{border-color:var(--brand);color:var(--brand-dark);}
+  .nav-btn.active{background:var(--brand);color:#fff;border-color:var(--brand);}
+  .nav-btn.back{color:var(--ink-soft);}
+  .nav-divider{width:1px;height:20px;background:var(--line);margin:0 4px;}
+  .nav-label{font-size:12px;color:var(--ink-soft);font-weight:600;margin-right:4px;}
+  .anchor{text-decoration:none;font-size:13px;color:var(--ink-soft);padding:4px 10px;border-radius:6px;transition:.15s;}
+  .anchor:hover{background:var(--brand-soft);color:var(--brand-dark);}
+  main{padding:32px 0 60px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 30px;margin-bottom:24px;scroll-margin-top:calc(var(--nav-h) + 16px);}
+  .card > h2{margin:0 0 8px;font-size:21px;letter-spacing:-.5px;padding-bottom:12px;border-bottom:2px solid var(--line);}
+  .card > h2 .num{color:var(--brand);font-weight:800;margin-right:8px;}
+  .card > h3{font-size:15px;margin:20px 0 8px;color:var(--brand-dark);}
+  .card p{margin:0 0 14px;}.card p:last-child{margin-bottom:0;}
+  .muted{color:var(--ink-soft);font-size:14px;}
+  .lead{font-size:15px;color:var(--ink-soft);margin:0 0 18px;}
+  .phase{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--brand-dark);padding:3px 10px;border-radius:6px;margin-bottom:6px;letter-spacing:.3px;}
+  /* 숫자 강조 그리드 */
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:16px 0;}
+  .stat{background:var(--brand-soft);border-radius:12px;padding:18px 16px;text-align:center;}
+  .stat .big{font-size:30px;font-weight:800;color:var(--brand-dark);line-height:1.1;}
+  .stat .cap{font-size:13px;color:var(--ink-soft);margin-top:6px;}
+  /* 3단 카드 */
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:16px 0;}
+  .mcard{border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  .mcard .top{background:var(--brand-soft);padding:12px 16px;border-bottom:1px solid var(--line);}
+  .mcard .top b{font-size:15px;}.mcard .top .en{font-size:12px;color:var(--ink-soft);display:block;}
+  .mcard .body{padding:12px 16px;font-size:13.5px;color:var(--ink-soft);}
+  /* 프롬프트 박스 (핵심) */
+  .prompt{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:14px 0;background:#fff;}
+  .prompt-head{display:flex;align-items:center;justify-content:space-between;background:#f9fafb;border-bottom:1px solid var(--line);padding:9px 14px;}
+  .prompt-head .label{font-size:13px;font-weight:700;color:var(--ink);display:inline-flex;align-items:center;gap:7px;}
+  .prompt-head .label::before{content:"▶";color:var(--brand);font-size:10px;}
+  .copy-btn{font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;color:#fff;background:var(--brand);border:none;padding:6px 14px;border-radius:7px;transition:.15s;}
+  .copy-btn:hover{background:var(--brand-dark);}.copy-btn.done{background:var(--ok);}
+  .video-wrap{background:#000;border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);margin:16px 0;}
+  .video-wrap video{display:block;width:100%;height:auto;background:#000;}
+  .prompt pre{margin:0;padding:16px 18px;background:var(--code-bg);font-family:"SFMono-Regular",Consolas,"D2Coding","Menlo",monospace;font-size:13.5px;line-height:1.7;color:#111827;white-space:pre-wrap;word-break:break-word;}
+  /* 노트/경고/팁 */
+  .box{border-radius:10px;padding:14px 18px;margin:16px 0;font-size:14.5px;}
+  .box .box-title{font-weight:700;margin-bottom:4px;display:block;}
+  .box.note{background:var(--note);border-left:4px solid var(--note-bd);}
+  .box.warn{background:var(--warn);border-left:4px solid var(--warn-bd);}
+  .box.tip{background:var(--tip);border-left:4px solid var(--tip-bd);}
+  /* 기대 답변 */
+  .answer{font-size:13px;color:var(--ink-soft);margin:6px 2px 0;}
+  .answer b{color:var(--brand-dark);}
+  /* 테이블 */
+  .table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px;border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+  .table th,.table td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  .table thead th{background:var(--brand);color:#fff;font-weight:700;}
+  .table tbody tr:nth-child(even){background:#fafbfc;}
+  .table tbody tr:last-child td{border-bottom:none;}
+  .table td strong{color:var(--brand-dark);}
+  /* 번호 스텝 */
+  .steps{list-style:none;counter-reset:step;margin:16px 0;padding:0;}
+  .steps li{counter-increment:step;position:relative;padding:12px 0 12px 52px;border-bottom:1px solid var(--line);}
+  .steps li:last-child{border-bottom:none;}
+  .steps li::before{content:counter(step);position:absolute;left:0;top:11px;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;}
+  .steps li b{display:block;font-size:15px;margin-bottom:2px;}.steps li span{color:var(--ink-soft);font-size:14px;}
+  /* 체크리스트 */
+  .checklist{list-style:none;margin:16px 0;padding:0;}
+  .checklist li{position:relative;padding:9px 0 9px 30px;font-size:14.5px;border-bottom:1px solid var(--line);}
+  .checklist li:last-child{border-bottom:none;}
+  .checklist li::before{content:"☐";position:absolute;left:0;top:8px;color:var(--brand);font-size:18px;line-height:1;}
+  .checklist li .ex{color:var(--ink-soft);font-size:13.5px;}
+  /* 푸터/토스트 */
+  footer{border-top:1px solid var(--line);background:#fff;color:var(--ink-soft);font-size:13px;text-align:center;padding:24px 0;}
+  footer strong{color:var(--ink);}
+  #toast{position:fixed;left:50%;bottom:32px;transform:translate(-50%,20px);background:#111827;color:#fff;font-size:14px;font-weight:600;padding:12px 22px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.25s;z-index:100;}
+  #toast.show{opacity:1;transform:translate(-50%,0);}
+  @media(max-width:640px){.header h1{font-size:24px;}.card{padding:22px 18px;}:root{--nav-h:150px;}}
+  /* ===== 1차시 전용 : 그래프 · 타임라인 ===== */
+  .figure{border:1px solid var(--line);border-radius:12px;background:#fff;padding:16px 18px 12px;margin:18px 0 6px;}
+  .figure .fig-cap{font-size:13px;font-weight:700;color:var(--brand-dark);margin-bottom:6px;}
+  .figure svg{display:block;width:100%;height:auto;}
+  .legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:8px;padding-top:10px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--ink-soft);}
+  .legend .lg{display:inline-flex;align-items:center;gap:6px;}
+  .legend .sw{width:13px;height:13px;border-radius:3px;display:inline-block;flex-shrink:0;}
+  .legend .sw.winter{background:#e8edf3;border:1px solid #d3dbe4;}
+  .legend .sw.spring{background:var(--brand);}
+  /* 타임라인 */
+  .tl{position:relative;margin:24px 0 4px;}
+  .tl::before{content:"";position:absolute;left:6px;right:6px;top:46px;height:3px;background:linear-gradient(90deg,#dde7f4,var(--brand));border-radius:2px;}
+  .tl-row{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;position:relative;}
+  .tl-item{text-align:center;padding:0 3px;}
+  .tl-item .yr{font-size:15px;font-weight:800;color:var(--brand-dark);letter-spacing:-.3px;height:26px;line-height:26px;}
+  .tl-item .dot{width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--brand);margin:12px auto 14px;position:relative;z-index:1;}
+  .tl-item.now .dot{background:var(--brand);box-shadow:0 0 0 5px rgba(91,143,214,.20);}
+  .tl-item .ev{font-size:14px;font-weight:700;line-height:1.35;margin-bottom:4px;letter-spacing:-.3px;word-break:keep-all;}
+  .tl-item.now .ev{color:var(--brand-dark);}
+  .tl-item .why{font-size:12.5px;color:var(--ink-soft);line-height:1.5;word-break:keep-all;}
+  @media(max-width:720px){
+    .tl::before{left:8px;right:auto;top:8px;bottom:8px;width:3px;height:auto;background:linear-gradient(180deg,#dde7f4,var(--brand));}
+    .tl-row{grid-template-columns:1fr;gap:0;}
+    .tl-item{text-align:left;position:relative;padding:0 0 18px 36px;}
+    .tl-item .dot{position:absolute;left:1px;top:5px;margin:0;}
+    .tl-item .yr{height:auto;line-height:1.4;font-size:14px;}
+  }
+
+  /* ===== 강의 투사용 화면 배율 ===== */
+  :root{--scale:1;}
+  @media(min-width:1500px){:root{--scale:1.15;}}
+  @media(min-width:1800px){:root{--scale:1.3;}}
+  html[data-scale="1"]{--scale:1;}
+  html[data-scale="2"]{--scale:1.15;}
+  html[data-scale="3"]{--scale:1.3;}
+  html[data-scale="4"]{--scale:1.45;}
+  html[data-scale="5"]{--scale:1.6;}
+  main{zoom:var(--scale);}
+  .scaler{position:fixed;right:16px;bottom:16px;z-index:80;display:flex;align-items:center;gap:4px;background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:999px;padding:5px 7px;box-shadow:0 4px 18px rgba(0,0,0,.14);backdrop-filter:blur(6px);}
+  .scaler button{font-family:inherit;cursor:pointer;width:30px;height:30px;line-height:1;font-size:17px;font-weight:700;color:var(--brand-dark);background:var(--brand-soft);border:1px solid #dbe7f6;border-radius:50%;transition:.15s;}
+  .scaler button:hover{background:var(--brand);color:#fff;border-color:var(--brand);}
+  .scaler .lv{cursor:pointer;font-size:12px;font-weight:700;color:var(--ink-soft);min-width:46px;text-align:center;user-select:none;}
+  @media print{.scaler{display:none;}main{zoom:1;}}
+</style>
+<script>
+  /* 저장된 배율을 그리기 전에 적용 (깜빡임 방지) */
+  try{var _s=localStorage.getItem('lectureScale'); if(_s)document.documentElement.setAttribute('data-scale',_s);}catch(e){}
+</script>
+</head>
+<body>
+
+<div class="statusbar"></div>
+
+<header class="header">
+  <div class="wrap">
+    <span class="logo">KTR 한국화학융합시험연구원</span>
+    <p class="eyebrow">신입사원 AI 실전활용 · 4차시 · 강사 김현경</p>
+    <h1>보고서 작성부터 PPT까지</h1>
+    <p class="subtitle">실습 · 중소기업 해외인증 지원 강화 방안</p>
+    <span class="guide">💡 실습 프롬프트는 복사 버튼으로 붙여넣으세요</span>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="wrap">
+    <div class="nav-row">
+      <a class="nav-btn back" href="index.html">← 목록으로</a>
+      <span class="nav-divider"></span>
+      <a class="nav-btn" href="session_1.html">1차시</a>
+      <a class="nav-btn" href="session_2.html">2차시</a>
+      <a class="nav-btn" href="session_3.html">3차시</a>
+      <a class="nav-btn active" href="session_4.html">4차시</a>
+    </div>
+    <div class="nav-row sub">
+      <span class="nav-label">바로가기</span>
+      <a class="anchor" href="#s1">4 Steps</a>
+      <a class="anchor" href="#s2">Step 1 사전 검토</a>
+      <a class="anchor" href="#s3">Step 2 딥리서치</a>
+      <a class="anchor" href="#s4">Step 3 초안 작성</a>
+      <a class="anchor" href="#s5">Step 4 비판적 검토</a>
+      <a class="anchor" href="#s6">발표자료 생성</a>
+      <a class="anchor" href="#s7">마무리</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+
+    <section class="card" id="s1">
+      <h2><span class="num">01</span>보고서 작성 4 Steps</h2>
+      <p class="lead">한 번에 "보고서 써줘"라고 하지 않습니다 — 네 단계로 나눠 맡깁니다.</p>
+      <ol class="steps">
+        <li><b>Step 1 · 사전 검토</b><span>무엇을 확인해야 하는지 먼저 묻기</span></li>
+        <li><b>Step 2 · 심층 조사</b><span>딥리서치로 한계 · 사례 · 장애요인 수집</span></li>
+        <li><b>Step 3 · 초안 작성</b><span>6개 섹션을 항목별로 작성한 뒤 통합</span></li>
+        <li><b>Step 4 · 비판적 검토</b><span>결재자 시선으로 약점 점검</span></li>
+      </ol>
+      <div class="box note"><span class="box-title">📌 실습 주제</span>「중소기업 해외인증 취득 지원 강화 방안」 — 네 단계를 그대로 따라가며 한 편을 완성합니다.</div>
+    </section>
+
+    <section class="card" id="s2">
+      <span class="phase">STEP 1</span>
+      <h2><span class="num">02</span>사전 검토 가이드 받기</h2>
+      <p class="lead">보고서를 쓰기 전에, 무엇을 확인해야 하는지 AI에게 먼저 묻습니다.</p>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">Step 1 · 사전 검토 체크리스트</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>중소기업 해외인증 취득 지원 강화 방안 보고서를 쓰려고 해.
+실무자가 보고서 작성 전에 미리 검토해야 할 체크리스트를 만들어줘.
+
+- 확인해야 할 통계·자료와 출처
+- 검토할 법령·기존 지원사업
+- 협의해야 할 부처·기관</pre>
+      </div>
+      <p class="answer">AI 역할 — <b>가이드</b> · 작성 전 빠진 것이 없는지 미리 점검합니다.</p>
+    </section>
+
+    <section class="card" id="s3">
+      <span class="phase">STEP 2</span>
+      <h2><span class="num">03</span>심층 조사 (딥리서치)</h2>
+      <p class="lead">입력창 → 도구 → Deep Research 선택 · 2~5분간 자동으로 자료를 모읍니다.</p>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">Step 2 · 딥리서치</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>「중소기업 해외인증 취득 지원 강화 방안」에 대한 심층 조사를 해줘.
+
+조사 관점:
+1) 국내 중소기업의 해외인증 취득 애로사항과 사각지대
+2) 해외 주요국의 시험인증 지원 제도 사례
+3) 국내 적용 시 예상되는 법·제도·예산상 장애요인
+4) 최근 2~3년 내 새로 등장한 인증·규제 키워드</pre>
+      </div>
+      <p class="answer">AI 역할 — <b>분석가</b> · 백그라운드로 돌려놓고 다음 단계를 진행합니다.</p>
+      <div class="box warn"><span class="box-title">⚠ 주의</span>딥리서치 결과의 <b>통계 · 수치 · 출처는 반드시 원문 링크로 확인</b>한 뒤 인용하세요.</div>
+    </section>
+
+    <section class="card" id="s4">
+      <span class="phase">STEP 3</span>
+      <h2><span class="num">04</span>보고서 초안 작성 — 항목별로 하나씩</h2>
+      <p class="lead">한 번에 다 쓰지 않습니다 — 항목별로 하나씩 쓰고 검토한 뒤 마지막에 통합합니다.</p>
+      <table class="table">
+        <thead><tr><th>단계</th><th>항목</th><th>요청 포인트</th></tr></thead>
+        <tbody>
+          <tr><td><strong>3-1</strong></td><td>추진 배경 및 필요성</td><td>왜 지금 필요한지 · 공문서 스타일 3~4문단</td></tr>
+          <tr><td><strong>3-2</strong></td><td>현황 및 문제점</td><td>기존 지원사업의 한계 · 문제점 3가지로 구조화</td></tr>
+          <tr><td><strong>3-3</strong></td><td>추진 방안 (3가지)</td><td>방안별 차별화 포인트 · 기존과 무엇이 다른지</td></tr>
+          <tr><td><strong>3-4</strong></td><td>추진 일정 및 예산</td><td>1~3년차 단계별 일정 · 항목별 예산을 표로</td></tr>
+          <tr><td><strong>3-5</strong></td><td>기대 효과</td><td>정량적 효과(수치) · 정성적 효과(사회적 가치)</td></tr>
+          <tr><td><strong>3-6</strong></td><td>전체 통합</td><td>누락 없이 하나로 · 중복 정리 · 보고용 최종본</td></tr>
+        </tbody>
+      </table>
+
+      <h3>3-1 · 추진 배경 및 필요성</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">Step 3-1</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>앞 조사 내용을 바탕으로 「중소기업 해외인증 취득 지원 강화 방안」 보고서의
+「1. 추진 배경 및 필요성」 부분만 작성해줘.
+- 왜 지금 이 지원이 필요한지 명확히
+- 최근 해외 규제 강화 흐름·수출 중소기업 동향과 연결
+- 공문서 스타일, 3~4문단</pre>
+      </div>
+
+      <h3>3-2 · 현황 및 문제점</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">Step 3-2</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>「2. 현황 및 문제점」 부분을 작성해줘.
+- 기존 인증 지원 사업의 한계 짚기
+- 사각지대(영세·창업기업, 신규 규제 대응 등) 명시
+- 문제점은 3가지로 구조화
+- 통계나 수치는 반드시 근거 링크를 하단에 첨부해줘</pre>
+      </div>
+
+      <h3>3-3 · 추진 방안 (3가지)</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">Step 3-3</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>「3. 추진 방안」 부분을 작성해줘.
+- 3가지 방안으로 구분
+- 각 방안마다 차별화 포인트 명시
+- 기존 지원사업과 무엇이 다른지 분명히</pre>
+      </div>
+
+      <h3>3-4 · 추진 일정 및 예산</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">Step 3-4</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>「4. 추진 일정 및 예산」 부분을 작성해줘.
+- 1~3년차 단계별 일정
+- 항목별 예산 규모(개략적 범위로)
+- 표 형태로 정리</pre>
+      </div>
+
+      <h3>3-5 · 기대 효과</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">Step 3-5</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>「5. 기대 효과」 부분을 작성해줘.
+- 정량적 효과 (수치 포함)
+- 정성적 효과 (사회적 가치)
+- 상사가 보고 만족할 수 있는 메시지</pre>
+      </div>
+
+      <h3>3-6 · 전체 통합</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">Step 3-6</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>지금까지 작성한 내용을 모두 통합하여 내용 누락 없이 하나의 보고서로 정리해줘.
+- 항목 간 흐름이 자연스럽게 연결되도록
+- 중복 내용은 정리
+- 보고용 최종본 형태</pre>
+      </div>
+    </section>
+
+    <section class="card" id="s5">
+      <span class="phase">STEP 4</span>
+      <h2><span class="num">05</span>비판적 검토</h2>
+      <p class="lead">내 보고서의 약점은 내가 못 봅니다 — AI에게 결재자의 시선을 빌립니다.</p>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">Step 4 · 비판적 검토</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>방금 작성한 보고서를 상위 결재자·예산 담당자 입장에서 비판적으로 검토해줘.
+확인할 것:
+- 논리적 약점 3가지
+- 실패할 수 있는 원인
+- 결재 시 예상 질문 5가지
+- 답변하기 어려울 만한 부분</pre>
+      </div>
+      <p class="answer">AI 역할 — <b>검토자</b> · 결재 자리에서 당황하지 않도록 미리 점검합니다.</p>
+    </section>
+
+    <section class="card" id="s6">
+      <span class="phase">실습</span>
+      <h2><span class="num">06</span>보고서 → 발표자료 자동 생성</h2>
+      <h3>① PPT 구성안 만들기</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">PPT 구성안</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>위의 보고서를 부서 회의 발표용 10장 PPT 구성안으로 제작해줘. 전체 내용을 누락시키지 말고 모두 포함.</pre>
+      </div>
+      <h3>② Canvas로 슬라이드 만들기 — 순서대로 따라 합니다</h3>
+      <ol class="steps">
+        <li><b>Canvas 모드를 켠다</b><span>완성한 보고서를 그대로 붙여넣는다</span></li>
+        <li><b>디자인 스타일을 함께 지정한다</b><span>흰 배경 · 포인트 색 1가지 · 장당 메시지 1개</span></li>
+        <li><b>구글 슬라이드로 내보낸다</b><span>생성된 슬라이드를 내보내 최종 편집</span></li>
+      </ol>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">디자인 지정 문구</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>위 구성안으로 발표 슬라이드를 만들어줘.
+[디자인] 흰 배경 · 포인트 색 1가지 · 이모지 금지 · 슬라이드마다 핵심 메시지 1개 · 제목은 좌상단 고정</pre>
+      </div>
+    </section>
+
+    <section class="card" id="s7">
+      <h2><span class="num">07</span>마무리 체크리스트</h2>
+      <ul class="checklist">
+        <li><b>네 단계를 나눠 맡겼는가</b> — <span class="ex">한 번에 "보고서 써줘"라고 하지 않았는지</span></li>
+        <li><b>수치와 출처를 확인했는가</b> — <span class="ex">딥리서치 결과의 통계는 원문 링크로 대조</span></li>
+        <li><b>결재자 시선으로 검토받았는가</b> — <span class="ex">예상 질문 5가지에 답할 수 있는지</span></li>
+        <li><b>발표자료까지 만들었는가</b> — <span class="ex">구성안 → Canvas → 구글 슬라이드 내보내기</span></li>
+        <li><b>최종 책임은 담당자에게</b> — <span class="ex">판단과 확인은 사람이 한다</span></li>
+      </ul>
+      <div class="box note"><span class="box-title">📌 오늘 배운 것</span>AI에게 <b>가이드 · 분석가 · 작성자 · 검토자</b> 네 역할을 차례로 맡기면, 보고서 한 편과 발표자료가 함께 나옵니다.</div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>KTR 한국화학융합시험연구원 · 4차시 보고서 작성부터 PPT까지</strong> &nbsp;|&nbsp; 강사 김현경 &nbsp;|&nbsp; © 2026
+  </div>
+</footer>
+
+<div id="toast">복사되었습니다 ✓</div>
+
+<script>
+  function copyPrompt(btn){
+    const pre = btn.closest('.prompt').querySelector('pre');
+    const text = pre.textContent;
+    const onSuccess = () => {
+      btn.textContent = '✓ 복사됨';btn.classList.add('done');
+      const toast = document.getElementById('toast');toast.classList.add('show');
+      setTimeout(() => {btn.textContent='복사';btn.classList.remove('done');toast.classList.remove('show');},2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(onSuccess).catch(fallbackCopy);
+    } else { fallbackCopy(); }
+    function fallbackCopy(){
+      const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+      document.body.appendChild(ta);ta.select();
+      try{document.execCommand('copy');onSuccess();}catch(e){alert('복사에 실패했습니다. 직접 선택해 복사해 주세요.');}
+      document.body.removeChild(ta);
+    }
+  }
+</script>
+<div class="scaler" role="group" aria-label="화면 배율">
+  <button type="button" onclick="scaleStep(-1)" title="글자 작게" aria-label="글자 작게">&minus;</button>
+  <span class="lv" id="scaleLv" onclick="scaleReset()" title="클릭하면 자동으로 되돌립니다">자동</span>
+  <button type="button" onclick="scaleStep(1)" title="글자 크게" aria-label="글자 크게">+</button>
+</div>
+
+<script>
+  /* 화면 배율 — 강의장 좌석 거리에 맞춰 조절 */
+  (function(){
+    var KEY='lectureScale', el=document.documentElement, LV=['100%','115%','130%','145%','160%'];
+    function paint(){
+      var v=el.getAttribute('data-scale');
+      document.getElementById('scaleLv').textContent = v ? LV[v-1] : '자동';
+    }
+    window.scaleStep=function(d){
+      var cur=parseInt(el.getAttribute('data-scale')||'0',10);
+      if(!cur){var w=window.innerWidth; cur = w>=1800?3:(w>=1500?2:1);}
+      var n=Math.min(5,Math.max(1,cur+d));
+      el.setAttribute('data-scale',n);
+      try{localStorage.setItem(KEY,n);}catch(e){}
+      paint();
+    };
+    window.scaleReset=function(){
+      el.removeAttribute('data-scale');
+      try{localStorage.removeItem(KEY);}catch(e){}
+      paint();
+    };
+    document.addEventListener('keydown',function(e){
+      if(e.target.matches('input,textarea')) return;
+      if(e.key==='+'||e.key==='='){scaleStep(1);}
+      else if(e.key==='-'||e.key==='_'){scaleStep(-1);}
+      else if(e.key==='0'){scaleReset();}
+    });
+    paint();
+  })();
+</script>
+</body>
+</html>
