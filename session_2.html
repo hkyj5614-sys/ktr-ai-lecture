@@ -244,6 +244,23 @@ html:fullscreen .deck-controls:hover,html:fullscreen .deck-controls:focus-within
 .nav-row.sub .nav-label{grid-row:1 / -1;grid-column:1;}
 .nav-row.sub .anchor{white-space:nowrap;}
 .nav-row.sub.single-row{display:flex;flex-wrap:nowrap;}
+
+@media (max-width:720px){
+  html,body{height:100%;overflow:hidden;}
+  body{display:block;}
+  .statusbar,.nav{display:none;}
+  main{display:block;width:100%;height:calc(100vh - 58px);padding:0;overflow:hidden;}
+  main>.wrap{width:100%;height:100%;}
+  .card{width:100%;height:100%;left:0;top:0;transform:none!important;padding:22px 18px;overflow:hidden;border:0;border-radius:0;box-shadow:none;}
+  .card.is-active{visibility:visible;}
+  .slide-page-info{left:18px;right:18px;top:7px;font-size:11px;}
+  .card>h2{font-size:23px;line-height:1.3;margin-top:18px;}
+  .slide-body{overflow-y:auto;overflow-x:hidden;padding-bottom:10px;}
+  .deck-controls{position:fixed;left:0;right:0;bottom:0;z-index:90;height:58px;display:flex;gap:8px;padding:8px 10px;background:rgba(255,255,255,.96);}
+  .deck-controls button{font-size:13px;padding:8px 11px;}
+  #slideCount{font-size:12px;min-width:48px;}
+  .title-slide{display:flex;align-items:center;justify-content:center;}
+}
 </style>
 
 </head>
