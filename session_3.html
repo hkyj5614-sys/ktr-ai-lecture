@@ -146,137 +146,15 @@
   .scaler button{font-family:inherit;cursor:pointer;width:30px;height:30px;line-height:1;font-size:17px;font-weight:700;color:var(--brand-dark);background:var(--brand-soft);border:1px solid #dbe7f6;border-radius:50%;transition:.15s;}
   .scaler button:hover{background:var(--brand);color:#fff;border-color:var(--brand);}
   .scaler .lv{cursor:pointer;font-size:12px;font-weight:700;color:var(--ink-soft);min-width:46px;text-align:center;user-select:none;}
+  @media print{.scaler{display:none;}main{zoom:1;}}
 
-/* 모바일 발표 화면: 세로 viewport에 맞춘 가독성 레이아웃 */
-@media (max-width:720px){
-  html,body{overflow:hidden;}
-  main{padding:0;}
-  main>.wrap{height:100%;}
-  .card{width:100%;height:100%;padding:24px 20px;font-size:16px;line-height:1.5;overflow:hidden;}
-  .card>h2{font-size:25px;line-height:1.3;margin:0 0 14px;padding-bottom:12px;}
-  .card>.phase{font-size:13px;margin-bottom:5px;}
-  .slide-page-info{left:20px;right:20px;top:7px;font-size:12px;}
-  .slide-body{min-height:0;overflow:auto;padding-right:2px;}
-  .lead,.muted{font-size:16px;}.box{font-size:16px;padding:13px 15px;}
-  .table{font-size:14px;}.table th,.table td{padding:8px 9px;}
-  .prompt{margin:8px 0;}.prompt-head{padding:8px 10px;}.prompt-head .label{font-size:14px;}
-  .prompt pre{font-size:15px;line-height:1.5;padding:12px;}
-  .copy-btn{font-size:12px;padding:5px 8px;}
-  .steps li{padding:10px 0 10px 38px;}.steps li b{font-size:18px;}.steps li span{font-size:15px;}.steps li::before{top:12px;width:25px;height:25px;font-size:14px;}
-  .grid3{gap:10px;}.mcard .top{padding:10px 12px;}.mcard .top b{font-size:17px;}.mcard .body{font-size:15px;padding:12px;}
-  .title-slide h1{font-size:32px;}.title-slide .eyebrow{font-size:16px;}.title-slide .subtitle{font-size:19px;}
-  .title-slide .logo{width:130px;margin-bottom:22px;}
-  .deck-controls{gap:7px;padding:8px 6px;}.deck-controls button{font-size:12px;padding:8px 9px;}#slideCount{font-size:12px;min-width:45px;}
-  .nav-row{overflow-x:auto;}.nav-row.sub{grid-template-rows:auto auto;gap:3px 6px;padding:5px 0;}.nav-row.sub .anchor{font-size:11px;padding:4px 6px;}
-  .music-grid{grid-template-columns:1fr;gap:10px;overflow:auto;}.music-example{padding:12px;min-height:0;}.music-example h3{font-size:18px;margin-bottom:8px;}.music-example h3 .muted{font-size:14px;margin-top:3px;}.music-example .prompt pre{font-size:15px;padding:10px;}
-  .notebook-qa .slide-body,.pair-qa .slide-body{display:flex;gap:7px;}.notebook-qa .slide-body>.prompt pre,.pair-qa .slide-body>.prompt pre{font-size:15px;min-height:52px;padding:11px;}.notebook-qa .slide-body>.prompt .prompt-head,.pair-qa .slide-body>.prompt .prompt-head{min-height:38px;padding:8px 10px;}.notebook-qa .slide-body>.prompt .prompt-head .label,.pair-qa .slide-body>.prompt .prompt-head .label{font-size:14px;}
-}
-@media print{.scaler{display:none;}main{zoom:1;}}
-/* 16:9 lecture presentation */
-html,body{height:100%;overflow:hidden;scroll-behavior:auto;}
-body{display:flex;flex-direction:column;}
-.statusbar{flex:0 0 4px;}.nav{position:relative;flex:0 0 auto;}
-.nav .wrap{max-width:none;padding:0 20px;}
-.nav-row{padding:6px 0;}.nav-row.sub{flex-wrap:nowrap;overflow-x:auto;padding:6px 0;}
-.nav-label,.anchor{flex-shrink:0;}.anchor.active{background:var(--brand-dark);color:#fff;}
-main{flex:1;min-height:0;padding:12px;zoom:1;overflow:hidden;}
-main>.wrap{position:relative;width:100%;height:100%;max-width:none;padding:0;}
-.card{position:absolute;left:50%;top:50%;width:1600px;height:900px;padding:48px 60px;margin:0;transform-origin:center;visibility:hidden;display:flex;flex-direction:column;font-size:28px;line-height:1.5;}
-.card[hidden]{display:none!important;}.card.is-active{visibility:visible;}.card:focus{outline:none;}
-.card>h2{font-size:42px;line-height:1.3;margin:0 0 24px;padding-bottom:18px;flex-shrink:0;}
-.card>.phase{align-self:flex-start;flex-shrink:0;font-size:19px;margin:0 0 8px;}
-.slide-body{flex:1;min-height:0;display:flow-root;}
-.slide-unit{display:flow-root;}.slide-unit>h3{font-size:30px;color:var(--brand-dark);margin:12px 0;line-height:1.4;}
-.lead,.muted{font-size:26px;}.box{font-size:27px;padding:18px 24px;}
-.table{font-size:26px;}.table th,.table td{padding:13px 18px;word-break:keep-all;overflow-wrap:break-word;}
-.prompt{margin:12px 0;}.prompt-head{padding:12px 18px;}.prompt-head .label{font-size:24px;}.prompt pre{font-size:26px;line-height:1.55;padding:20px 24px;}
-.copy-btn{font-size:21px;flex-shrink:0;}.answer{font-size:23px;}
-.steps li{padding:18px 0 18px 60px;}.steps li b{font-size:31px;}.steps li span{font-size:27px;}.steps li::before{top:21px;width:36px;height:36px;font-size:21px;}
-.checklist li{font-size:29px;padding:16px 0 16px 36px;}.checklist li .ex{font-size:26px;}.checklist li::before{top:20px;}
-.grid3{gap:22px;}.mcard .top{padding:20px 24px;}.mcard .top b{font-size:29px;}.mcard .top .en{font-size:22px;}.mcard .body{font-size:26px;padding:24px;word-break:keep-all;}
-.stat .big{font-size:60px;}.stat .cap{font-size:25px;}
-.title-slide{justify-content:center;text-align:center;}.title-slide .wrap{width:100%;max-width:none;}
-.title-slide .logo{display:block;width:220px;height:auto;max-height:110px;object-fit:contain;padding:0;margin:0 auto 40px;background:none;border-radius:0;}
-.title-slide h1{font-size:72px;}.title-slide .eyebrow{font-size:30px;}.title-slide .subtitle{font-size:36px;margin-top:24px;}
-footer,.scaler,.header .guide{display:none;}
-.deck-controls{flex-shrink:0;display:flex;align-items:center;justify-content:center;gap:16px;padding:10px 20px;background:#fff;border-top:1px solid var(--line);}
-.deck-controls button{font-family:inherit;font-size:14px;font-weight:600;padding:9px 16px;cursor:pointer;border:1px solid var(--line);border-radius:9px;color:var(--brand-dark);background:#fff;}
-.deck-controls button:hover:not(:disabled){background:var(--brand-soft);}.deck-controls button:disabled{opacity:.35;cursor:default;}
-.deck-controls button:focus-visible,.anchor:focus-visible{outline:3px solid var(--brand);outline-offset:2px;}
-#slideCount{font-size:14px;font-weight:700;min-width:70px;text-align:center;}
-#toast{bottom:80px;}
-html:fullscreen body{background:#fff;}html:fullscreen .statusbar,html:fullscreen .nav{display:none;}html:fullscreen main{padding:0;}
-html:fullscreen .card{border:0;border-radius:0;box-shadow:none;}
-html:fullscreen .deck-controls{position:fixed;bottom:0;left:50%;transform:translateX(-50%);z-index:80;opacity:0;border-radius:14px 14px 0 0;transition:opacity .2s;}
-html:fullscreen .deck-controls:hover,html:fullscreen .deck-controls:focus-within{opacity:1;}
-@media print{html,body{height:auto;overflow:visible;display:block;}.nav,.statusbar,.deck-controls,#toast{display:none!important;}main,main>.wrap{height:auto;padding:0;overflow:visible;}.card,.card[hidden]{display:block!important;position:static;width:auto;height:auto;transform:none!important;visibility:visible;break-after:page;margin:0;box-shadow:none;}.slide-body{height:auto;overflow:visible;}.slide-unit{zoom:1!important;}.card:last-child{break-after:auto;}}
-
-
-/* Every generated slide has a distinct top navigation label. */
-.slide-page-info{position:absolute;left:60px;right:60px;top:12px;display:flex;justify-content:space-between;align-items:center;gap:24px;color:var(--ink-soft);font-size:18px;line-height:24px;font-weight:600;pointer-events:none;}
-.slide-page-info span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.slide-page-info span:last-child{flex-shrink:0;font-variant-numeric:tabular-nums;}
-@media print{.slide-page-info{position:static;margin-bottom:12px;}}
-
-/* 긴 페이지 탭은 두 줄로 배치하고, 더 많으면 가로로 탐색 */
-.nav-row.sub{display:grid;grid-template-rows:auto auto;grid-auto-flow:column;grid-auto-columns:max-content;justify-content:start;align-items:center;gap:4px 8px;overflow-x:auto;}
-.nav-row.sub .nav-label{grid-row:1 / -1;grid-column:1;}
-.nav-row.sub .anchor{white-space:nowrap;}
-.nav-row.sub.single-row{display:flex;flex-wrap:nowrap;}
-
-
-
-#s3 .filedl{font-size:26px;padding:22px 34px;border-radius:14px;gap:14px;}
-#s3 .filedl .fsize{font-size:19px;}
-#s3>h3{font-size:32px;}
-#s3>.slide-body>p{font-size:25px;line-height:1.55;}
-/* 오늘의 시뮬레이션: 상황과 목표를 크게 강조 */
-#s2 .slide-body{display:flex;flex-direction:column;justify-content:center;gap:34px;}
-#s2 .slide-body .box{font-size:38px;line-height:1.65;padding:34px 40px;margin:0;}
-#s2 .slide-body .box-title{font-size:30px;margin-bottom:12px;}
-/* 노트북 질문: 모든 질문을 같은 가로형 행으로 정렬 */
-.notebook-qa .slide-body{display:flex;flex-direction:column;gap:10px;min-height:0;}
-.notebook-qa .slide-body>.lead{margin:0 0 4px;font-size:27px;}
-.notebook-qa .slide-body>h3{margin:0;font-size:27px;line-height:1.35;}
-.notebook-qa .slide-body>h3:not(:first-of-type){display:none;}
-.notebook-qa .slide-body>.prompt{width:100%;margin:0;display:flex;flex-direction:column;}
-.notebook-qa .slide-body>.prompt .prompt-head{padding:12px 18px;}
-.notebook-qa .slide-body>.prompt .prompt-head .label{font-size:25px;}
-.notebook-qa .slide-body>.prompt pre{padding:14px 20px;font-size:26px;line-height:1.45;}
-.notebook-qa .slide-body>.answer{margin:-4px 0 4px;padding-left:20px;font-size:21px;line-height:1.3;}
-.notebook-qa .slide-body>.prompt:nth-of-type(2),.notebook-qa .slide-body>.prompt:nth-of-type(3),.notebook-qa .slide-body>.prompt:nth-of-type(4){margin-top:2px;}
-
-.notebook-qa .slide-body>.prompt .prompt-head{min-height:58px;padding:15px 22px;}
-.notebook-qa .slide-body>.prompt pre{min-height:82px;padding:20px 24px;font-size:27px;line-height:1.5;}
-@media print{.notebook-qa .slide-body{display:block;}.notebook-qa .slide-body>h3{display:block!important;}}
-
-/* 교차 확인·상황 적용: 두 질문을 한 장에 함께 표시 */
-.pair-qa .slide-body{display:flex;flex-direction:column;gap:12px;min-height:0;}
-.pair-qa .slide-body>h3{margin:0;font-size:29px;line-height:1.35;}
-.pair-qa .slide-body>.prompt{margin:0;width:100%;display:flex;flex-direction:column;}
-.pair-qa .slide-body>.prompt .prompt-head{min-height:58px;padding:15px 22px;}
-.pair-qa .slide-body>.prompt .prompt-head .label{font-size:25px;}
-.pair-qa .slide-body>.prompt pre{min-height:92px;padding:20px 24px;font-size:27px;line-height:1.5;}
-.pair-qa .slide-body>.answer{margin:-4px 0 6px;padding-left:20px;font-size:22px;line-height:1.3;}
-
-@media (max-width:1100px){
-  html,body{height:100%;overflow:hidden;}
-  body{display:block;}
-  .statusbar,.nav{display:none;}
-  main{display:block;width:100%;height:calc(100vh - 58px);padding:0;overflow:hidden;}
-  main>.wrap{width:100%;height:100%;}
-  .card{width:100%;height:100%;left:0;top:0;transform:none!important;padding:22px 18px;overflow:hidden;border:0;border-radius:0;box-shadow:none;}
-  .card.is-active{visibility:visible;}
-  .slide-page-info{left:18px;right:18px;top:7px;font-size:11px;}
-  .card>h2{font-size:23px;line-height:1.3;margin-top:18px;}
-  .slide-body{overflow-y:auto;overflow-x:hidden;padding-bottom:10px;}
-  .deck-controls{position:fixed;left:0;right:0;bottom:0;z-index:90;height:58px;display:flex;gap:8px;padding:8px 10px;background:rgba(255,255,255,.96);}
-  .deck-controls button{font-size:13px;padding:8px 11px;}
-  #slideCount{font-size:12px;min-width:48px;}
-  .title-slide{display:flex;align-items:center;justify-content:center;}
-}
+  /* ===== 문서형 레이아웃 보완 ===== */
+  .header img.logo{display:block;width:180px;height:auto;max-height:82px;object-fit:contain;padding:0;margin:0 0 16px;background:none;border-radius:0;}
 </style>
-
+<script>
+  /* 저장된 배율을 그리기 전에 적용 (깜빡임 방지) */
+  try{var _s=localStorage.getItem('lectureScale'); if(_s)document.documentElement.setAttribute('data-scale',_s);}catch(e){}
+</script>
 </head>
 <body>
 
@@ -288,6 +166,7 @@ html:fullscreen .deck-controls:hover,html:fullscreen .deck-controls:focus-within
     <p class="eyebrow">신입사원 AI 실전활용 · 3차시 · 강사 김현경</p>
     <h1>제미나이 노트북 활용</h1>
     <p class="subtitle">규정·매뉴얼을 근거까지 찾아주는 도우미</p>
+    <span class="guide">💡 실습 프롬프트는 복사 버튼으로 붙여넣으세요</span>
   </div>
 </header>
 
@@ -303,7 +182,6 @@ html:fullscreen .deck-controls:hover,html:fullscreen .deck-controls:focus-within
     </div>
     <div class="nav-row sub">
       <span class="nav-label">바로가기</span>
-      <a class="anchor" href="#cover">표지</a>
       <a class="anchor" href="#s1">노트북이란</a>
       <a class="anchor" href="#s2">시뮬레이션</a>
       <a class="anchor" href="#s3">자료 준비</a>
@@ -358,7 +236,7 @@ html:fullscreen .deck-controls:hover,html:fullscreen .deck-controls:focus-within
       <div class="box warn"><span class="box-title">⚠ 주의</span>실습용 <b>가상 규정집</b>입니다. 실제 업무 판단에는 사용하지 마세요. 고객 시험데이터 · 대외비 문서는 업로드하지 않습니다.</div>
     </section>
 
-    <section class="card notebook-qa" id="s4" data-single-slide="true">
+    <section class="card notebook-qa" id="s4">
       <span class="phase">실습 ①②</span>
       <h2><span class="num">04</span>규정 요약 &amp; 근거 질의응답</h2>
       <h3>① 규정 요약 — 전체 파악</h3>
@@ -384,7 +262,7 @@ html:fullscreen .deck-controls:hover,html:fullscreen .deck-controls:focus-within
       <p class="answer">기대 답변 — <b>절차서 5.2절</b></p>
     </section>
 
-    <section class="card notebook-qa pair-qa" id="s5" data-single-slide="true">
+    <section class="card notebook-qa pair-qa" id="s5">
       <span class="phase">실습 ③④</span>
       <h2><span class="num">05</span>교차 확인 &amp; 상황 적용</h2>
       <h3>③ 규정 간 상충 · 중복 점검</h3>
@@ -524,214 +402,41 @@ html:fullscreen .deck-controls:hover,html:fullscreen .deck-controls:focus-within
     }
   }
 </script>
-<div class="deck-controls" role="group" aria-label="슬라이드 탐색">
-  <button type="button" id="prevSlide" aria-label="이전 슬라이드">← 이전</button>
-  <span id="slideCount" role="status" aria-live="polite" aria-atomic="true"></span>
-  <button type="button" id="nextSlide" aria-label="다음 슬라이드">다음 →</button>
-  <button type="button" id="fullscreen" aria-label="전체화면 전환">전체화면</button>
+<div class="scaler" role="group" aria-label="화면 배율">
+  <button type="button" onclick="scaleStep(-1)" title="글자 작게" aria-label="글자 작게">&minus;</button>
+  <span class="lv" id="scaleLv" onclick="scaleReset()" title="클릭하면 자동으로 되돌립니다">자동</span>
+  <button type="button" onclick="scaleStep(1)" title="글자 크게" aria-label="글자 크게">+</button>
 </div>
+
 <script>
-(function(){
-  const stage=document.querySelector('main > .wrap');
-  const cover=document.querySelector('.header');
-  cover.id='cover';
-  cover.classList.add('card','title-slide');
-  stage.prepend(cover);
-  const sourceSections=Array.from(stage.querySelectorAll(':scope > section.card'));
-  sourceSections.forEach(source=>{
-    if(source.dataset.singleSlide==='true'){
-      const body=document.createElement('div');body.className='slide-body';
-      Array.from(source.children).filter(el=>el.tagName!=='H2'&&!el.classList.contains('phase')).forEach(el=>body.append(el));
-      source.append(body);source.dataset.section=source.id;
+  /* 화면 배율 — 강의장 좌석 거리에 맞춰 조절 */
+  (function(){
+    var KEY='lectureScale', el=document.documentElement, LV=['100%','115%','130%','145%','160%'];
+    function paint(){
+      var v=el.getAttribute('data-scale');
+      document.getElementById('scaleLv').textContent = v ? LV[v-1] : '자동';
     }
-  });
-
-  // Measure at the native 1600 x 900 size before fitting the completed slides.
-  sourceSections.filter(source=>source.dataset.singleSlide!=='true').forEach(source=>{
-    const heading=source.querySelector(':scope > h2');
-    const phase=source.querySelector(':scope > .phase');
-    const blocks=Array.from(source.children).filter(el=>el!==heading&&el!==phase);
-    const units=[];
-    for(let i=0;i<blocks.length;i++){
-      const unit=document.createElement('div');unit.className='slide-unit';
-      unit.append(blocks[i]);
-      if(blocks[i].tagName==='H3'&&i+1<blocks.length)unit.append(blocks[++i]);
-      if(i+1<blocks.length&&blocks[i+1].classList.contains('answer'))unit.append(blocks[++i]);
-      units.push(unit);
-    }
-    let page,body,part=0;
-    function newPage(){
-      page=document.createElement('section');page.className='card';
-      page.id=part===0?source.id:source.id+'-part'+(part+1);
-      page.dataset.section=source.id;part++;
-      if(phase)page.append(phase.cloneNode(true));
-      const title=heading.cloneNode(true);
-      if(part>1)title.append(document.createTextNode(' · '+part));
-      page.append(title);
-      body=document.createElement('div');body.className='slide-body';page.append(body);
-      source.before(page);
-    }
-    newPage();
-    for(const unit of units){
-      // Start each named exercise on its own slide.
-      if(unit.firstElementChild.tagName==='H3'&&body.children.length)newPage();
-      body.append(unit);
-      if(body.scrollHeight>body.clientHeight+1&&body.children.length>1){
-        unit.remove();newPage();body.append(unit);
-      }
-      // A single long prompt remains intact, including its copy button.
-      if(body.scrollHeight>body.clientHeight+1){
-        unit.style.zoom=Math.min(1,(body.clientHeight-8)/unit.offsetHeight);
-      }
-    }
-    source.remove();
-  });
-
-  // Remove any accidental empty continuation slides.
-  Array.from(stage.children).filter(el=>{ const body=el.querySelector('.slide-body'); return el.classList.contains('card') && body && (!body.textContent.trim() || (body.children.length===1 && (body.firstElementChild.classList.contains('lead') || (body.firstElementChild.classList.contains('slide-unit') && body.firstElementChild.querySelector(':scope > .lead') && body.firstElementChild.children.length===1)))); }).forEach(el=>el.remove());
-
-  const slides=Array.from(stage.children).filter(el=>el.classList.contains('card'));
-  // Give each actual slide its own navigation item and descriptive page label.
-  const subnav=document.querySelector('.nav-row.sub');
-  const originalLabels=new Map(Array.from(subnav.querySelectorAll('.anchor')).map(link=>[link.hash.slice(1),link.textContent.trim()]));
-  const sectionCounts=new Map();
-  slides.forEach(slide=>{
-    const section=slide.dataset.section||slide.id;
-    sectionCounts.set(section,(sectionCounts.get(section)||0)+1);
-  });
-  subnav.querySelectorAll('.anchor').forEach(link=>link.remove());
-  const usedLabels=new Map();
-  const sectionOrdinals=new Map();
-  slides.forEach((slide,index)=>{
-    const section=slide.dataset.section||slide.id;
-    const base=originalLabels.get(section)||'표지';
-    const ordinal=(sectionOrdinals.set(section,(sectionOrdinals.get(section)||0)+1),sectionOrdinals.get(section));
-    const subheading=slide.querySelector('.slide-body h3');
-    const prompts=Array.from(slide.querySelectorAll('.prompt-head .label'));
-    let detail='';
-    if(subheading)detail=subheading.textContent.trim().split(' — ')[0];
-    else if(prompts.length===1)detail=prompts[0].textContent.trim();
-    else if(prompts.length>1)detail='테스트';
-    else if(slide.querySelector('.checklist'))detail='체크리스트';
-    else if(slide.querySelector('.table'))detail='비교·정리';
-    if(detail.includes('시스템 프롬프트'))detail='지시사항';
-    let label=base+(detail?' · '+detail:'');
-    usedLabels.set(label,(usedLabels.get(label)||0)+1);
-    const link=document.createElement('a');link.className='anchor';link.href='#'+slide.id;link.textContent=label;subnav.append(link);
-    const info=document.createElement('div');info.className='slide-page-info';
-    const name=document.createElement('span');name.textContent=label;
-    const count=document.createElement('span');count.textContent=(index+1)+' / '+slides.length;
-    info.append(name,count);slide.prepend(info);
-    if(section==='s6'){
-      const title=slide.querySelector(':scope > h2');
-      const h3=slide.querySelector('.slide-body h3');
-      if(title && h3) title.textContent=title.textContent.replace(/ · \d+$/, '')+' · '+h3.textContent.trim().split(' — ')[0];
-    }
-    slide.dataset.pageLabel=label;
-  });
-
-
-  function layoutPageTabs(){
-    subnav.classList.add('single-row');
-    const needsTwoRows=subnav.scrollWidth>subnav.clientWidth+1;
-    subnav.classList.toggle('single-row',!needsTwoRows);
-    const tabs=Array.from(subnav.querySelectorAll('.anchor'));
-    const columns=Math.ceil(tabs.length/2);
-    subnav.style.gridTemplateColumns='max-content repeat('+columns+', max-content)';
-    tabs.forEach((tab,index)=>{
-      tab.style.gridRow=String(Math.floor(index/columns)+1);
-      tab.style.gridColumn=String(index%columns+2);
+    window.scaleStep=function(d){
+      var cur=parseInt(el.getAttribute('data-scale')||'0',10);
+      if(!cur){var w=window.innerWidth; cur = w>=1800?3:(w>=1500?2:1);}
+      var n=Math.min(5,Math.max(1,cur+d));
+      el.setAttribute('data-scale',n);
+      try{localStorage.setItem(KEY,n);}catch(e){}
+      paint();
+    };
+    window.scaleReset=function(){
+      el.removeAttribute('data-scale');
+      try{localStorage.removeItem(KEY);}catch(e){}
+      paint();
+    };
+    document.addEventListener('keydown',function(e){
+      if(e.target.matches('input,textarea')) return;
+      if(e.key==='+'||e.key==='='){scaleStep(1);}
+      else if(e.key==='-'||e.key==='_'){scaleStep(-1);}
+      else if(e.key==='0'){scaleReset();}
     });
-  }
-  layoutPageTabs();
-  window.addEventListener('resize',layoutPageTabs);
-  document.addEventListener('fullscreenchange',()=>{
-    if(!document.fullscreenElement)layoutPageTabs();
-  });
-
-  const links=Array.from(document.querySelectorAll('.nav .anchor'));
-  const prev=document.getElementById('prevSlide');
-  const next=document.getElementById('nextSlide');
-  const fullscreen=document.getElementById('fullscreen');
-  let current=0;
-  function fit(){
-    const slide=slides[current];
-    const scale=Math.min(stage.clientWidth/slide.offsetWidth,stage.clientHeight/slide.offsetHeight);
-    slide.style.transform='translate(-50%,-50%) scale('+scale+')';
-  }
-  slides.forEach((slide,i)=>{
-    slide.setAttribute('role','group');
-    slide.setAttribute('aria-roledescription','슬라이드');
-    slide.setAttribute('aria-label',(i+1)+' / '+slides.length);
-    slide.tabIndex=-1;
-  });
-  function show(index,updateHash=true,focus=true){
-    current=Math.max(0,Math.min(slides.length-1,index));
-    slides.forEach((slide,i)=>{
-      slide.hidden=i!==current;
-      slide.classList.toggle('is-active',i===current);
-      if(i!==current)slide.querySelectorAll('video').forEach(video=>video.pause());
-    });
-    prev.disabled=current===0;
-    next.disabled=current===slides.length-1;
-    document.getElementById('slideCount').textContent=(current+1)+' / '+slides.length;
-    links.forEach(link=>{
-      const active=link.hash==='#'+slides[current].id;
-      link.classList.toggle('active',active);
-      if(active)link.setAttribute('aria-current','step');
-      else link.removeAttribute('aria-current');
-    });
-    const activeLink=links.find(link=>link.classList.contains('active'));
-    if(activeLink)activeLink.scrollIntoView({block:'nearest',inline:'nearest'});
-    if(updateHash){
-      try{history.replaceState(null,'','#'+slides[current].id);}catch(e){}
-    }
-    fit();
-    if(focus)slides[current].focus({preventScroll:true});
-  }
-  function fromHash(){
-    const index=slides.findIndex(slide=>'#'+slide.id===location.hash);
-    show(index<0?0:index,false,false);
-  }
-  prev.addEventListener('click',()=>show(current-1));
-  next.addEventListener('click',()=>show(current+1));
-  links.forEach(link=>link.addEventListener('click',e=>{
-    e.preventDefault();
-    show(slides.findIndex(slide=>'#'+slide.id===link.hash));
-  }));
-  document.addEventListener('keydown',e=>{
-    if(e.defaultPrevented||e.altKey||e.ctrlKey||e.metaKey||e.target.closest('input,textarea,select,video,audio,[contenteditable]:not([contenteditable="false"])'))return;
-    let target;
-    if(e.key==='ArrowRight'||e.key==='PageDown')target=current+1;
-    else if(e.key==='ArrowLeft'||e.key==='PageUp')target=current-1;
-    else if(e.key==='Home')target=0;
-    else if(e.key==='End')target=slides.length-1;
-    else if(e.code==='Space'&&!e.target.closest('button,a'))target=current+(e.shiftKey?-1:1);
-    if(target!==undefined){e.preventDefault();show(target);}
-  });
-  fullscreen.hidden=!document.documentElement.requestFullscreen;
-  fullscreen.addEventListener('click',async()=>{
-    try{
-      if(document.fullscreenElement)await document.exitFullscreen();
-      else await document.documentElement.requestFullscreen();
-    }catch(e){alert('전체화면을 사용할 수 없습니다. 브라우저의 전체화면 메뉴를 이용해 주세요.');}
-  });
-  document.addEventListener('fullscreenchange',()=>{
-    fullscreen.textContent=document.fullscreenElement?'전체화면 종료':'전체화면';
-    if(document.fullscreenElement)slides[current].focus({preventScroll:true});
-    fit();
-  });
-  window.addEventListener('hashchange',fromHash);
-  window.addEventListener('resize',fit);
-  if(window.ResizeObserver){
-    const observer=new ResizeObserver(fit);
-    observer.observe(stage);
-    slides.forEach(slide=>observer.observe(slide));
-  }
-  document.querySelectorAll('video').forEach(video=>video.addEventListener('loadedmetadata',fit));
-  fromHash();
-})();
-
+    paint();
+  })();
 </script>
 </body>
 </html>
