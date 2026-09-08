@@ -347,6 +347,19 @@
   #slideCount{font-size:12px;min-width:48px;}
   .title-slide{display:flex;align-items:center;justify-content:center;}
 }
+
+/* 모바일 가독성 우선: 문서형 스크롤 레이아웃 */
+body.static-deck{display:block;min-height:100vh;overflow:visible;}
+.static-deck .statusbar{display:block;}
+.static-deck .header{display:block;position:static;padding:34px 0 26px;}
+.static-deck .nav{display:block;position:sticky;top:0;z-index:50;}
+.static-deck main{display:block;height:auto;min-height:0;padding:32px 0 60px;overflow:visible;}
+.static-deck main>.wrap{height:auto;max-width:920px;padding:0 20px;}
+.static-deck .card,.static-deck .card[hidden]{display:block;position:static;width:auto;height:auto;transform:none!important;visibility:visible;margin-bottom:24px;padding:28px 30px;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);}
+.static-deck .title-slide{display:block;min-height:0;text-align:left;}
+.static-deck .title-slide h1{font-size:30px;}.static-deck .title-slide .subtitle{font-size:16px;}
+.static-deck .slide-page-info{display:none;}.static-deck .deck-controls{display:none;}.static-deck footer{display:block;}
+@media(max-width:720px){.static-deck .header{padding:24px 0 20px;}.static-deck main{padding:20px 0 40px;}.static-deck main>.wrap{padding:0 12px;}.static-deck .card,.static-deck .card[hidden]{padding:22px 18px;margin-bottom:16px;}.static-deck .card>h2{font-size:24px;}.static-deck .card .lead,.static-deck .card .muted{font-size:16px;}.static-deck .table{font-size:14px;}.static-deck .prompt pre{font-size:15px;}.static-deck .grid3{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -620,6 +633,8 @@
 </div>
 <script>
 (function(){
+  document.body.classList.add('static-deck');
+  return;
   const stage=document.querySelector('main > .wrap');
   const cover=document.querySelector('.header');
   cover.id='cover';
