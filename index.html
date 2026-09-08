@@ -16,6 +16,14 @@
   html{scroll-behavior:smooth;}
   body{margin:0;font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased;}
   .wrap{max-width:920px;margin:0 auto;padding:0 20px;}
+  .qr-card{margin:28px 0 8px;padding:24px;text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);}
+  .qr-card h2{margin:0 0 6px;font-size:21px;}.qr-card p{margin:0 0 16px;color:var(--ink-soft);font-size:14px;}
+  .qr-thumb{display:inline-block;width:180px;height:180px;padding:8px;background:#fff;border:1px solid var(--line);border-radius:12px;cursor:pointer;transition:.15s;}
+  .qr-thumb:hover{transform:scale(1.03);box-shadow:0 5px 18px rgba(0,0,0,.12);}
+  .qr-thumb img{display:block;width:100%;height:100%;}
+  .qr-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(15,23,42,.78);}
+  .qr-modal.open{display:flex;}.qr-modal-panel{position:relative;padding:28px;background:#fff;border-radius:18px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3);}
+  .qr-modal img{display:block;width:min(72vw,520px);height:min(72vw,520px);}.qr-modal button{position:absolute;top:8px;right:10px;border:0;background:none;font-size:28px;color:var(--ink-soft);cursor:pointer;}
   .statusbar{height:4px;background:linear-gradient(90deg,var(--brand),var(--brand-dark));}
   .hero{padding:48px 0 36px;text-align:center;}
   .hero .logo{display:inline-block;font-weight:800;letter-spacing:-.5px;color:var(--brand-dark);font-size:15px;margin-bottom:16px;padding:6px 14px;background:var(--brand-soft);border-radius:999px;}
@@ -109,16 +117,44 @@
       </div>
     </section>
 
+    <section class="qr-card" aria-labelledby="qr-title">
+      <h2 id="qr-title">강의 자료 바로가기</h2>
+      <p>QR 코드를 휴대폰 카메라로 스캔하세요. 이미지를 클릭하면 크게 볼 수 있습니다.</p>
+      <button class="qr-thumb" type="button" id="qrOpen" aria-label="강의 자료 QR 코드 크게 보기">
+        <img src="https://quickchart.io/qr?text=https%3A%2F%2Fhkyj5614-sys.github.io%2Fktr-ai-lecture%2F&size=500&margin=2" alt="GitHub Pages 강의 자료 QR 코드">
+      </button>
+    </section>
+
 
 
   </div>
 </main>
+
+<div class="qr-modal" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qr-title">
+  <div class="qr-modal-panel">
+    <button type="button" id="qrClose" aria-label="QR 코드 닫기">×</button>
+    <img src="https://quickchart.io/qr?text=https%3A%2F%2Fhkyj5614-sys.github.io%2Fktr-ai-lecture%2F&size=1000&margin=2" alt="GitHub Pages 강의 자료 QR 코드 크게 보기">
+  </div>
+</div>
 
 <footer>
   <div class="wrap">
     <strong>KTR 한국화학융합시험연구원 · 신입사원 AI 실전활용</strong> · 강사 김현경 &nbsp;|&nbsp; © 2026
   </div>
 </footer>
+
+<script>
+  (function(){
+    const modal=document.getElementById('qrModal');
+    const open=document.getElementById('qrOpen');
+    const close=document.getElementById('qrClose');
+    function hide(){modal.classList.remove('open');}
+    open.addEventListener('click',()=>modal.classList.add('open'));
+    close.addEventListener('click',hide);
+    modal.addEventListener('click',e=>{if(e.target===modal)hide();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')hide();});
+  })();
+</script>
 
 </body>
 </html>
