@@ -24,6 +24,8 @@
   .qr-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(15,23,42,.78);}
   .qr-modal.open{display:flex;}.qr-modal-panel{position:relative;padding:28px;background:#fff;border-radius:18px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3);}
   .qr-modal img{display:block;width:min(72vw,520px);height:min(72vw,520px);}.qr-modal button{position:absolute;top:8px;right:10px;border:0;background:none;font-size:28px;color:var(--ink-soft);cursor:pointer;}
+  .app-links{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 8px;}.app-link{display:block;padding:18px;background:#fff;border:1px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);}.app-link strong{display:block;font-size:16px;color:var(--brand-dark);}.app-link span{display:block;margin-top:4px;color:var(--ink-soft);font-size:13px;}.app-link:hover{border-color:var(--brand);background:var(--brand-soft);}
+  @media(max-width:640px){.app-links{grid-template-columns:1fr;}}
   .statusbar{height:4px;background:linear-gradient(90deg,var(--brand),var(--brand-dark));}
   .hero{padding:48px 0 36px;text-align:center;}
   .hero .logo{display:inline-block;font-weight:800;letter-spacing:-.5px;color:var(--brand-dark);font-size:15px;margin-bottom:16px;padding:6px 14px;background:var(--brand-soft);border-radius:999px;}
@@ -130,6 +132,25 @@
           <h3>보고서 작성부터 PPT까지</h3>
           <p class="desc">사전 검토 → 딥리서치 → 초안 작성 → 비판적 검토 4단계 실습</p>
           <span class="go">강의안 보기</span>
+        </a>
+      </div>
+    </section>
+
+    <section aria-labelledby="apps-title">
+      <div class="sec-title">
+        <span class="dot"></span>
+        <h2 id="apps-title">필요한 앱</h2>
+        <span class="hint">강의 실습에 사용하는 서비스</span>
+      </div>
+      <div class="app-links">
+        <a class="app-link" href="https://gemini.google.com/" target="_blank" rel="noopener">
+          <strong>Google Gemini ↗</strong><span>모델 선택 · 맞춤 설정 · 이미지·음악 생성</span>
+        </a>
+        <a class="app-link" href="https://notebooklm.google.com/" target="_blank" rel="noopener">
+          <strong>Google NotebookLM ↗</strong><span>규정집 업로드 · 근거 기반 질문</span>
+        </a>
+        <a class="app-link" href="https://chatgpt.com/" target="_blank" rel="noopener">
+          <strong>ChatGPT ↗</strong><span>생성형 AI 기본 실습 · 심층리서치</span>
         </a>
       </div>
     </section>
