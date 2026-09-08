@@ -11,7 +11,7 @@
     --brand:#5b8fd6;--brand-dark:#3f72bd;--brand-soft:#eef4fb;
     --ink:#1f2937;--ink-soft:#6b7280;--line:#e5e7eb;--bg:#f7f8fa;--card:#ffffff;
     --code-bg:#f3f4f6;--note:#eef4fb;--note-bd:#5b8fd6;--warn:#fff7ed;--warn-bd:#ea580c;
-    --tip:#fffbeb;--tip-bd:#d4a017;--ok:#16a34a;--nav-h:118px;--radius:14px;
+    --tip:#fffbeb;--tip-bd:#d4a017;--ok:#16a34a;--nav-h:160px;--radius:14px;
     --shadow:0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
   }
   *{box-sizing:border-box;}
@@ -99,7 +99,7 @@
   footer strong{color:var(--ink);}
   #toast{position:fixed;left:50%;bottom:32px;transform:translate(-50%,20px);background:#111827;color:#fff;font-size:14px;font-weight:600;padding:12px 22px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.25s;z-index:100;}
   #toast.show{opacity:1;transform:translate(-50%,0);}
-  @media(max-width:640px){.header h1{font-size:24px;}.card{padding:22px 18px;}:root{--nav-h:150px;}}
+  @media(max-width:640px){.header h1{font-size:24px;}.card{padding:22px 18px;}:root{--nav-h:210px;}}
   /* ===== 1차시 전용 : 그래프 · 타임라인 ===== */
   .figure{border:1px solid var(--line);border-radius:12px;background:#fff;padding:16px 18px 12px;margin:18px 0 6px;}
   .figure .fig-cap{font-size:13px;font-weight:700;color:var(--brand-dark);margin-bottom:6px;}
@@ -164,6 +164,11 @@
   .saju-result{width:100%;max-width:560px;aspect-ratio:655/327;margin:12px auto;}
   .saju-result img{width:195.42%;left:-86.718%;top:-116.82%;}
   .saju-prep .saju-order{font-size:13.5px;color:var(--ink-soft);}
+
+  /* 실습 도구 바로 열기 */
+  .nav-row.tools{padding-top:9px;border-top:1px dashed var(--line);}
+  .tool-btn{text-decoration:none;font-size:13px;font-weight:600;color:var(--brand-dark);background:var(--brand-soft);border:1px solid #dbe7f6;padding:6px 13px;border-radius:8px;transition:.15s;white-space:nowrap;}
+  .tool-btn:hover{background:var(--brand);color:#fff;border-color:var(--brand);}
 </style>
 <script>
   /* 저장된 배율을 그리기 전에 적용 (깜빡임 방지) */
@@ -204,6 +209,11 @@
       <a class="anchor" href="#s5">사주 컨설턴트 GEM</a>
       <a class="anchor" href="#s7">인포그래픽 GEM</a>
       <a class="anchor" href="#s8">정리</a>
+    </div>
+    <div class="nav-row tools">
+      <span class="nav-label">실습 도구</span>
+      <a class="tool-btn" href="https://gemini.google.com/" target="_blank" rel="noopener">제미나이 ↗</a>
+      <a class="tool-btn" href="https://daysaju.com/manseryeok" target="_blank" rel="noopener">데이사주 만세력 ↗</a>
     </div>
   </div>
 </nav>
