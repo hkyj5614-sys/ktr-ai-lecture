@@ -274,6 +274,17 @@ body.static-deck{display:block;min-height:100vh;overflow:visible;}
 .static-deck .title-slide h1{font-size:30px;}.static-deck .title-slide .subtitle{font-size:16px;}
 .static-deck .slide-page-info{display:none;}.static-deck .deck-controls{display:none;}.static-deck footer{display:block;}
 @media(max-width:720px){.static-deck .header{padding:24px 0 20px;}.static-deck main{padding:20px 0 40px;}.static-deck main>.wrap{padding:0 12px;}.static-deck .card,.static-deck .card[hidden]{padding:22px 18px;margin-bottom:16px;}.static-deck .card>h2{font-size:24px;}.static-deck .card .lead,.static-deck .card .muted{font-size:16px;}.static-deck .table{font-size:14px;}.static-deck .prompt pre{font-size:15px;}.static-deck .grid3{grid-template-columns:1fr;}}
+
+/* 문서형 모드에서는 슬라이드 전용 그리드 규칙 해제 */
+.static-deck #s1{display:block;}
+.static-deck #s1>*{grid-column:auto;grid-row:auto;}
+.static-deck #s1 .figure{height:auto;display:block;margin:18px 0;padding:16px 18px;}
+.static-deck #s1 .figure svg{height:auto;}
+.static-deck #s1 .tl{margin:24px 0;}
+.static-deck #s1 .tl::before,.static-deck #s1 .tl-item .dot{display:block;}
+.static-deck #s1 .tl-row{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;}
+.static-deck .slide-body{display:block;min-height:0;overflow:visible;}
+.static-deck .music-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));}
 </style>
 
 </head>
