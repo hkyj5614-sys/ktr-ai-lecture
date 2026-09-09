@@ -194,11 +194,13 @@
       <a class="anchor" href="#s6">스튜디오 활용</a>
       <a class="anchor" href="#s7">지침 설정</a>
       <a class="anchor" href="#s8">지침 테스트</a>
+      <a class="anchor" href="#s9">할루시네이션 차단</a>
     </div>
     <div class="nav-row tools">
       <span class="nav-label">실습 도구</span>
       <a class="tool-btn" href="https://notebooklm.google.com/" target="_blank" rel="noopener">제미나이 노트북 ↗</a>
       <a class="tool-btn" href="실습용_예시_규정집.pdf" download>⬇ 실습용 예시 규정집 (PDF)</a>
+      <a class="tool-btn" href="행정업무운영편람_2025.pdf" download>⬇ 행정업무운영편람 (PDF)</a>
     </div>
   </div>
 </nav>
@@ -375,6 +377,41 @@
       </div>
       <p class="answer">기대 반응 — <b>확인 질문을 먼저</b></p>
       <div class="box note"><span class="box-title">📌 판정</span>네 가지가 모두 기대대로 나오면 지침이 작동하는 것입니다 — 이제 실제 업무 질문으로 넘어갑니다.</div>
+    </section>
+
+    <section class="card" id="s9">
+      <span class="phase">검증</span>
+      <h2><span class="num">09</span>할루시네이션 차단 — 추측을 스스로 밝히게 하기</h2>
+      <p class="lead">자료에 직접 근거가 없는 답은 AI가 첫 줄에 스스로 &lsquo;추측&rsquo;이라고 표시하게 만듭니다.</p>
+
+      <div class="box note"><span class="box-title">📁 실습 자료</span>아래 <b>행정업무운영편람</b>을 내려받아 새 노트북에 소스로 업로드한 뒤, 지침에 붙여넣고 테스트합니다.</div>
+      <p><a class="filedl" href="행정업무운영편람_2025.pdf" download>⬇ 2025 행정업무운영 편람 내려받기 <span class="fsize">PDF · 약 7.7MB</span></a></p>
+
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">노트북 지침 · 할루시네이션 차단</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>답변 작성 원칙:
+1. 결론이 편람에 근거는 있을지라도 직접적인 표현이 없는 추측이면 답변 맨 첫 줄에 아래 블록을 그대로 출력하고, 추측이 들어간 문장은 반드시 "~일 것으로 보입니다 / ~일 가능성이 있습니다 / ~할 듯합니다" 등 불확실성 표현을 쓰며 절대 단정하지 않는다.
+편람에 직접적인 근거 표현이 있으면 이 블록을 절대 붙이지 않는다.
+🚨🚨 **★[ 추 측 ]★** 🚨🚨
+**이 답변은 편람에 직접적인 표현이 없는 추측입니다.**
+2. 추측이 아니면 핵심 답을 첫 문장에 제시한 뒤 상세 설명을 잇는다.
+3. 답변마다 편람의 어느 부분을 참고했는지 페이지를 함께 밝힌다. (예: 편람 p.23 참고)
+4. 표·예시·단계로 정리할 수 있는 내용은 표·예시·단계로 정리한다.</pre>
+      </div>
+
+      <h3>테스트 — 두 질문을 넣어 차이를 봅니다</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">① 편람에 있는 것</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>공문서에서 금액은 어떻게 표기해? 근거 페이지도 알려줘.</pre>
+      </div>
+      <p class="answer">기대 반응 — 추측 블록 <b>없이</b> 바로 답변 + <b>편람 p.○○ 참고</b> 표시</p>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">② 편람에 직접 표현이 없는 것</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>사내 메신저로 받은 업무 지시도 공문서로 남겨야 해?</pre>
+      </div>
+      <p class="answer">기대 반응 — 첫 줄에 <b>🚨 ★[ 추 측 ]★</b> 블록 + &ldquo;~일 것으로 보입니다&rdquo; 표현</p>
+
+      <div class="box tip"><span class="box-title">💡 왜 필요한가</span>자료에 있는 내용과 AI가 그럴듯하게 지어낸 내용을 <b>답변 첫 줄에서 바로</b> 구분할 수 있게 됩니다.</div>
     </section>
 
 
